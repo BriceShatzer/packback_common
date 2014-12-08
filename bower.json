@@ -1,5 +1,5 @@
 {
-  "name": "packback-common",
+  "name": "packback_common",
   "version": "1.0.0",
   "authors": [
     "Steven Maguire <steven@packback.co>"
@@ -24,5 +24,5 @@
     "packback-frontend-common": "git@github.com:packbackbooks/packback-frontend-common.git",
     "foundation": "~5.4.6"
   },
-  "homepage": "https://github.com/BriceShatzer/Packback_common"
+  "homepage": "https://github.com/BriceShatzer/packback_common"
 }
