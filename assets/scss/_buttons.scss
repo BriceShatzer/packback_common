@@ -1,0 +1,124 @@
+/* -- reminder of button mixin 
+@mixin button($padding:$button-med, $bg:$button-bg-color, $radius:false, $full-width:false, $disabled:false, $is-prefix:false, $bg-hover:null, $border-color:null, $transition: true)
+
+//$padding:$button-med, 
+// $bg:$button-bg-color, 
+// $radius:false,
+
+
+// $full-width:false, 
+// $disabled:false, 
+
+// $is-prefix:false, 
+// $bg-hover:null, 
+
+// $border-color:null, 
+// $transition: true
+
+*/
+
+.button {
+    @include button(rem-calc(12), $primary-color, rem-calc(5));
+    background-color:$primary-color;
+    font-weight: 600 !important;
+    border-width: rem-calc(1.5) !important;
+    border-style: solid !important;
+    border-color: $primary-color_dark;
+    &:hover {
+        background-color:$primary-color_dark;
+    }
+    &:focus {outline-width:0px;}
+}
+
+.button.secondary{
+    @include button(rem-calc(12),$PB_grey, true, false, false, false, null);
+    color:$PB_white;
+    &:hover{ 
+        color:$PB_white;
+    }
+}
+
+.button.tiny,button.tiny{
+    padding:.625rem 1.25rem .6875rem;
+    font-size:.6875rem
+}
+
+.button.small {
+    @include button(rem-calc(1), null, true, false, false, false, null);
+    border-color: $PB_smoke_light ;
+    color: $PB_smoke_light;
+    text-transform: uppercase;
+    padding: rem-calc(6) rem-calc(30);
+    background-color: transparent;
+    &:hover {
+        background-color: $PB_smoke_light;
+        color: $PB_grey_light;
+    }
+}
+
+.button.alert{
+    @include button(rem-calc(12),$alert-color, true, false, false, false, $alert-color_dark);
+    background-color:$alert-color;
+    border-color:$alert-color_dark;
+    &:hover{background-color:$alert-color_dark;}
+}
+.button.success{
+    @include button(rem-calc(12),$success-color, true, false, false, false, $success-color_dark);
+    background-color:$success-color;
+    border-color:$success-color_dark;
+    &:hover{background-color:$success-color_dark;}
+}
+.button.disabled {
+    background-color:$PB_teal_light;
+    border-color:$PB_teal;
+    @include button(rem-calc(12), $PB_teal_light, true, false, true, false, $PB_teal_light);
+    color:rgba(255,255,255,0.5);
+    opacity:1;
+    cursor:default;    
+    &:hover {
+        color:rgba(255,255,255,0.5);
+        background-color: $PB_teal_light;        
+    }
+    [class*="entypo-"]{
+        color:rgba(255,255,255,0.25);
+        &:hover{
+            color:rgba(255,255,255,0.25);
+        }
+    }
+}
+
+.button.disabled,.button.secondary.disabled{
+}
+
+.button.secondary.disabled{ 
+    background-color:$PB_grey;
+    color:rgba(255,255,255,0.5);
+    &:hover{
+        background-color:$PB_grey;
+        color:rgba(255,255,255,0.5);
+    }
+}
+.button.dropdown,.button.split{
+    padding-right: 3.5625rem;
+}
+
+.button-group,.button-group.radius{
+    &>li {
+        .button{
+            @include border-radius(0);
+            border-color:$primary-color_dark !important;
+            &.secondary{border-color:$PB_grey_dark !important;}
+            &.warning{border-color:$warning-color_dark !important;}
+            &.alert{border-color:$alert-color_dark !important;}
+            border-right-width:0 !important;
+        }
+        &:first-child .button{
+                @include side-radius(left, rem-calc(5));                
+        }
+        &:last-child .button{
+            @include side-radius(right, rem-calc(5));
+            border-right-width:rem-calc(1.25) !important;
+        }
+    }
+}
+

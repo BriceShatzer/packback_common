@@ -1,0 +1,22 @@
+/* I am so ashamed of myself for allowing this to exist */
+.setup form .small-7 .small-6.columns {
+    padding-left: 0;
+}
+
+
+.setup .payment-method form{
+	.card-expiration {
+		@extend .small-7;
+		@extend .columns;
+		div{
+			@extend .columns;
+			@extend .small-6;
+			padding-left: 0;
+		}
+	}
+	.card-cvv{
+		@extend .small-4;
+		@extend .small-offset-1;
+		@extend .columns;
+	}
+}

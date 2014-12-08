@@ -1,0 +1,38 @@
+.alert-box{
+    border-width:0;
+    text-align:center;
+    font-size: rem-calc(16);
+    margin-bottom: 0;
+    background-color:$primary-color;
+    &.success{
+        background-color:$primary-color;
+        @extend .entypo-check;
+        &::before {
+            font-size: 1.375rem;
+            margin-right: 0.5rem;
+            vertical-align: top;
+/*--prior static checkmark icon--
+            content:'';
+            height:.75rem;
+            width:1rem;
+            margin-right:0.5rem;
+            display:inline-block;
+            background:url('../img/icons/check-white-icon.png') no-repeat;
+            background-size:1rem;
+            background-position:right;
+*/
+        }
+    }
+    &.secondary{
+        background-color:$secondary-color;
+    }
+    &.info{
+        background-color:$info-color;
+    }
+    &.warning{
+        background-color:$warning-color
+    }
+    &.alert{
+        background-color: $alert-color;
+    }
+}

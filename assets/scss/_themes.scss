@@ -1,0 +1,39 @@
+.theme_light {
+    background-color: $PB_grey_light;
+    .outside{
+        .row:last-child a{
+            color: $PB_teal_light;
+            &:hover{color:$PB_teal}
+        }
+    }
+}
+.theme_dark {
+    background-color: $PB_smoke;
+    .alert-box{
+        text-align:center;
+        font-size: rem-calc(16);
+        margin-bottom: 0;
+        &.success{
+            $bg: $success-color;
+            background-color: $bg;
+            border-color: $bg
+        }
+    }
+    .outside,.signup,.login,.password {
+        .bookshelf-logo h4 {
+            color: $PB_white;
+            background-image:url(../img/icons/bookshelf_logo_rollover.svg);
+
+
+        }
+        .row:last-child {
+            p {
+                color: $PB_white;
+            }
+            a {
+                color: $PB_teal_light;
+                &:hover{color:$PB_seafoam}
+            }
+        }
+    }
+}

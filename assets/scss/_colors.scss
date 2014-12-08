@@ -1,0 +1,55 @@
+// Primary Brand Colors
+$PB_teal_light:#6CB8C1;//Can replace $pacback_teal
+$PB_teal:#549DA9;
+$PB_teal_dark:#3591A0;
+
+// Secondary Brand Colors
+$PB_red_light:#EF8E81;
+$PB_red:#E76F70;
+$PB_red_dark:#CF5055;
+
+$PB_gold_light:#FDCB94;
+$PB_gold:#F1B17C;
+$PB_gold_dark:#E39061;
+
+$PB_blue_light:#3788A3;
+$PB_blue:#1C7292;
+$PB_blue_dark:#1D526B;
+
+// Core Neutrals
+$PB_grey_light:#F3F4F7;
+$PB_grey:#DDE3E5;
+$PB_grey_dark:#B7C2C7;
+
+$PB_seafoam_light:#DAECEE;
+$PB_seafoam:#C0E2E6;
+$PB_seafoam_dark:#97BCC7;
+
+$PB_smoke_light:#6A7684;
+$PB_smoke:#5D656F;
+$PB_smoke_dark:#434C54;
+
+$PB_white:#FFFFFF;
+
+//Hijacking Foundation's default color names 
+//& providing a "_dark" variant
+$primary-color: $PB_teal_light;
+$primary-color_dark: $PB_teal;
+
+$secondary-color: $PB_seafoam;
+$secondary-color_dark: $PB_seafoam_dark;
+
+$alert-color: $PB_red;
+$alert-color_dark: $PB_red_dark;
+
+$success-color: $PB_teal_light;
+$success-color_dark: $PB_teal;
+
+$warning-color: $PB_gold;
+$warning-color_dark: $PB_gold_dark;
+
+$info-color: $PB_grey;
+$info-color_dark: $PB_grey_dark;
+
+$disabled-color:$PB_grey;
+$disabled-color_dark:$PB_grey_dark;

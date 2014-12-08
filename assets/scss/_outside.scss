@@ -1,0 +1,168 @@
+.stages {
+    @extend .show-for-medium-up;
+    background: $PB_grey_light;
+    padding: rem-calc(20) 0 rem-calc(20) 0;
+    &>div{
+        @extend .small-12;
+        @extend .medium-9;
+        @extend .medium-centered;
+        @extend .columns;
+    }
+    ul {
+        @extend .small-block-grid-4;
+        list-style: none;
+        margin: 0 auto;
+        li {
+            display: block;
+            float: left;
+            @include blocklettering;
+            font-weight: normal;
+            color: $PB_grey_dark;
+            padding-top: rem-calc(3);
+            text-align: center;
+            @media screen and (min-width:64em) and (max-width:rem-calc(1080)){
+                padding-right: rem-calc(8);
+                letter-spacing:0.10em;
+            }
+            span {
+                clear: none;
+                width: auto;
+                vertical-align: middle;
+                line-height: 1.6rem;                
+            }
+            &.active {
+                font-weight: bold;
+                color: $PB_teal_light;
+            }
+            &.completed {
+                span{
+                    @extend .entypo-check;
+                    &:before{
+                        font-size: 1.375rem;
+                        margin-right: 0.5rem;
+                        vertical-align: middle;
+                        line-height: 1.6rem;
+                    }
+                }
+            }
+            &.completed:before {
+/*--prior static checkmark icon--
+                display: inline-block;
+                content: '';
+                float: left;
+                clear: none;
+                width: rem-calc(20);
+                height: rem-calc(20);
+                margin: rem-calc(0 5 -3 0);
+                background: url('../img/icons/check-disabled-icon.png') no-repeat center;
+                background-size: contain;
+*/
+            }
+            span:first-child{
+                @extend .show-for-large-up;
+            }
+            span:last-child{
+                @extend .show-for-medium-only;
+            }
+        }
+    }
+}
+
+.outside {
+    padding-top:2.5%;
+    .brand {
+        figure {
+            text-align: center;
+        }
+        .bookshelf-logo {
+            margin-top: rem-calc(30);
+            margin-bottom: rem-calc(20);
+            h4{
+                letter-spacing: rem-calc(1);
+                margin:0 auto;
+                padding-left:rem-calc(56);
+                min-height: rem-calc(46);
+                line-height: rem-calc(46);
+                vertical-align: middle;
+                background-image:url("../img/icons/bookshelf_logo.svg");
+                background-position:rem-calc(-56) center; 
+                background-repeat:no-repeat;
+                background-origin:content-box;
+                background-clip:padding-box;
+                background-size: rem-calc(46) auto;
+                display: table;
+            }
+        }
+    }
+
+    .panel {
+        margin-top: rem-calc(30);
+        padding:rem-calc(40);
+
+        img {
+            margin-bottom: rem-calc(24);
+        }
+    }
+
+    input[type="email"]:valid{
+        background-image:url('../img/icons/check-disabled-icon.png');
+        background-repeat:no-repeat;
+        background-position:right;
+        background-size:1.25rem;
+        background-origin:content-box;
+    }
+    small.error{
+        font-style:normal;
+        font-weight:700;
+        color:$PB_teal_light;
+        background-color:transparent;
+
+        div.arrow{
+            float:left;
+            margin-top:rem-calc(10);
+            margin-right:rem-calc(10);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid $PB_teal_light;
+        }
+    }
+}
+
+.signup,.password {
+    @extend .outside;
+    .panel{
+        @extend .small-10;
+        @extend .medium-6;
+        @extend .small-centered;
+        @extend .columns;
+        .button:last-of-type{margin-bottom:0;}
+    }
+}
+
+.login {
+    @extend .outside;
+}
+
+
+
+.setup {
+    @extend .outside;
+    background: $PB_grey_light;
+    .info-entry{
+        @extend .large-12;
+        @extend .columns;
+    }
+
+    .personal-info,.payment-method{
+        @extend .small-12;
+        @extend .medium-8;
+        @extend .medium-centered;
+        @extend .large-6;
+        @extend .columns;
+        @extend .clearfix;
+        p{color:#5d656f !important;}
+        .button{margin-top:.5rem;}
+    }
+}

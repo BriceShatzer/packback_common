@@ -1,0 +1,127 @@
+//---Start Generic Panel Styling
+.panel{
+    @include border-radius(rem-calc(10));
+    background-color:$PB_white;
+    border-color:$PB_grey_dark;
+    padding: rem-calc(40);
+    position: relative;
+    overflow: hidden;
+    &.radius{@include border-radius(rem-calc(10));}
+
+    .alert-box{
+        border-width:0px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;    	
+    }
+    .alert-box + :nth-child(2){
+    	margin-top:rem-calc(30);
+    }
+}
+.panel.callout{
+    @extend .panel;
+        background: $PB_seafoam_light;
+        border-color:$PB_grey_dark;        
+    }
+//---End Generic Panel Styling 
+
+//---Start Tooltip Styling
+.tooltip{
+	$bg:$PB_smoke_dark;
+	background-color:$bg;
+	@include border-radius(rem-calc(5));
+	&>.nub{
+		border-bottom-color:$bg;
+	}
+	&.tip-top>.nub{
+		border-top-color:$bg;
+	}
+	&.tip-right>.nub{
+		border-right-color:$bg;
+	}
+	&.tip-bottom>.nub{
+		border-bottom-color:$bg;
+	}
+	&.tip-left>.nub{
+		border-left-color:$bg;
+	}
+}
+.has-tip:focus,.has-tip:hover{
+	color:$PB_teal_dark;
+}
+
+.f-dropdown.open{
+    @include border-radius(rem-calc(10));
+    background-color:$PB_white;
+    border-color:$PB_grey_dark;
+}
+//---End Tooltip Styling
+
+
+
+//section>input.search{}
+
+
+//---Start Pagingation Styling 
+ul.pagination{
+    li{margin-left:rem-calc(8);}
+    >a {
+        @include blocklettering;
+        margin-left:rem-calc(10);
+    }
+    a {
+        color:$PB_smoke !important;
+        line-height: rem-calc(45) !important;
+    }
+    li a{
+        @extend .button.secondary;
+        @include border-radius(rem-calc(5));
+        font-size: 1rem;
+        border-width:rem-calc(1.25) !important;
+        width:rem-calc(45);
+        height: rem-calc(45);
+        padding:rem-calc(0) !important;
+    }
+    li.current a{
+        @extend .button;
+        font-weight: normal !important;
+
+    } 
+    li.current+li a{
+    }
+
+    @media screen and (max-width:40rem){
+        >a{display:none;}
+        li{display:none;}
+        li.current{
+            display:block;
+        }
+        li.current+li{
+            display:block;
+            width:100%;
+            a{
+                visibility: hidden;
+            }
+            a:before {
+                @extend .button.secondary;
+                @include border-radius(rem-calc(5));
+                float:left;
+                content: "Next Page";
+                visibility: visible;                
+                color:$PB_smoke !important;
+                line-height: rem-calc(45) !important;
+                font-size: 1rem;
+                font-weight: 600 !important;
+                height:rem-calc(45);
+                padding:rem-calc(0 12) !important;
+                border-width:rem-calc(1.25) !important;
+                position:relative;
+                top:rem-calc(-25);
+                left:rem-calc(53);
+                width:rem-calc(120);
+            }
+        }
+    }
+}
+//---End Pagination Styling

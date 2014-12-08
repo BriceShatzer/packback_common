@@ -1,0 +1,85 @@
+.search {
+    input, button, .button {
+        margin: 0;
+    }
+}
+
+
+fieldset{border: 0;}
+
+fieldset legend {
+    background: transparent;
+}
+
+/* form input, form select {
+    border-radius: rem-calc(5);
+    border: rem-calc(1.25) solid $PB_grey_dark !important;
+}
+ */
+
+select,input[type=color],input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],textarea{
+	border: rem-calc(1.25) solid $PB_grey_dark;
+	@include border-radius(rem-calc(5));
+	@include block-glowing-effect(focus,0,$PB_teal_light);
+	padding-top:rem-calc(12);
+	padding-bottom:rem-calc(12);
+	height:rem-calc(45);
+}
+
+input[placeholder] { text-overflow: ellipsis }
+::-moz-placeholder { text-overflow: ellipsis; } // firefox 19+ 
+input:-moz-placeholder { text-overflow: ellipsis; }
+
+select:focus{
+	outline:none;
+}
+
+$border-radius:rem-calc(5);
+
+input[type="submit"]{
+	@include border-radius($border-radius);
+}
+
+label,span {
+	&.prefix,&.postfix{background-color:$PB_grey_light}
+
+}
+
+label,span,.button{
+	&.prefix{ 
+		@include side-radius(left, $border-radius);
+		@include side-radius(right, 0);
+		height: rem-calc(45);
+	}
+	&.postfix{ 
+		@include side-radius(right, $border-radius);
+		@include side-radius(left, 0);
+		height: rem-calc(45) !important;
+	}
+}
+
+.postfix.button,.prefix.button{ 
+    border-color:$PB_teal_dark;
+    line-height:rem-calc(45) !important;
+    padding:0 !important;
+}
+
+		
+form .row {
+	.postfix-radius.row.collapse{
+		input,select,textarea{
+			@include side-radius(left, $border-radius);
+		}		
+		.postfix{
+			@include side-radius(right, $border-radius);
+		}
+	}
+	.prefix-radius.row.collapse{
+		input,select,textarea{
+			@include side-radius(right, $border-radius);
+		}
+		.prefix{
+			@include side-radius(left, $border-radius);
+		}
+	}
+}	

@@ -1,0 +1,244 @@
+
+nav.ereader_header{
+    //width:100%;
+    
+    @mixin ereader_button{
+            padding-left: rem-calc(16);
+            padding-right: rem-calc(16);
+            width:rem-calc(45);
+            border-width:rem-calc(1.25);
+            margin-bottom: 0;
+            background-color:$PB_teal;
+            border-color:$PB_teal_dark !important;
+            font-weight: normal;
+            &:hover{background-color:$PB_teal_dark;}
+            &.disabled:hover{background-color:$PB_teal;}
+            span:before{
+                font-size:rem-calc(24);
+                line-height: 1rem;
+                width:1rem;
+                vertical-align: middle;
+            }
+    }
+
+    .branding,.pageControls,.zoomControls{
+        padding-top:rem-calc(20);
+        padding-bottom:rem-calc(20);
+        text-align:center;
+    }
+
+    .branding{
+        @include grid-row();
+        @include grid-column(3);
+        line-height: rem-calc(45);
+        vertical-align: middle;
+        padding:0;
+        //@media screen and (max-width:rem-calc(960)){
+        @media screen and (max-width:64rem){
+            span{display:none;}
+            span.icon{display:inline;}        
+/*             div.backToBookshelf{
+                padding-left:rem-calc(15);
+                padding-right:rem-calc(60);
+            }   */  
+        }
+        @media screen and (max-width:40rem){
+            @include grid-column(5);
+            padding:0;
+        }
+        @media screen and (max-width:rem-calc(480)){
+            @include grid-column(4);
+            padding:0;
+        }
+        div.backToBookshelf{
+            display:table;
+            padding:rem-calc(20 10 20 55);
+            margin:0 auto;  
+            background-image:url("../img/icons/bookshelf_logo.svg");
+            background-position:rem-calc(-45) center; 
+            background-repeat:no-repeat;
+            background-origin:content-box;
+            background-clip:padding-box;
+            background-size: rem-calc(45) auto;
+            height:rem-calc(45);
+            &:hover{
+                background-image: url("../img/icons/bookshelf_logo_rollover.svg");
+                background-color: $PB_teal;
+            }
+            //@media screen and (max-width:rem-calc(960)){
+            @media screen and (max-width:64rem){                
+                padding-left:rem-calc(65);
+                padding-right:rem-calc(20);
+            }
+            @media screen and (max-width:rem-calc(480)){
+                /* padding-left:rem-calc(45);
+                padding-right:rem-calc(2);
+                 */
+                //width:rem-calc(45);
+
+                background-size: rem-calc(45 45);
+                padding: rem-calc(45);
+/*                 padding-top:rem-calc(45);
+                padding-bottom:rem-calc(45);
+                padding-left:rem-calc(45);
+                padding-right:rem-calc(45);
+ */                background-position: center center;
+            }
+
+        }
+        div.backToBookshelf>div{
+            float:left;
+            margin-left:rem-calc(10);
+            @include blocklettering;
+            color: $PB_white;
+            vertical-align: middle;
+            @media screen and (max-width:rem-calc(480)){
+                //margin-left:rem-calc(6);
+                display: none;
+            }
+        }
+    }
+    
+    
+    .pageControls{
+        @include grid-row();
+        @include grid-column(6);
+        @media screen and (min-width: 40.0643rem) and (max-width:64rem){
+            padding-left:0;
+            padding-right:0;
+        }
+        @media screen and (max-width:40rem){
+            @include grid-column(7);
+            float:right !important;
+        }
+        @media screen and (max-width:rem-calc(480)){
+            @include grid-column(8);
+            padding-left:0;
+            padding-right:0;
+        }
+
+        .button{
+            @include grid-column(1);
+            @include ereader_button;
+            @include border-radius(rem-calc(5));
+            float:none;
+            display:inline-block;
+        }
+                
+        .pageListing{
+            @include grid-column(4);
+            @include border-radius(rem-calc(5));
+            display:inline-block;
+            float:none;
+            margin:0 0.5rem;
+            background-color:$PB_white;
+            @include inset-shadow(false);
+            color: $PB_smoke_light;
+            font-weight: 600;
+            line-height: normal;            
+            padding: rem-calc(12);
+            text-align:center;
+            height:rem-calc(45);
+            width:rem-calc(106);
+            &:focus{
+                border-color:$PB_grey_dark;
+            }
+            @media screen and (max-width:40rem){
+                padding:rem-calc(12 8);
+                width:rem-calc(96);
+                margin:0 0.25rem;
+            }
+        }
+    }
+
+    .zoomControls{
+        @include grid-column(3);
+        @extend .show-for-medium-up;
+        .button{
+            @include ereader_button;
+        }        
+    }
+}
+
+
+.ereader {
+    $controls-height: 10%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: $controls-height;
+    .disabled {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $PB_smoke;
+        z-index: 10;
+        span {
+            display: block;
+            text-align: center;
+            color: $PB_white;
+        }
+    }
+    .controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $controls-height;
+        background: gray;
+        ul {
+            li {
+                float: left; clear: none;
+                margin: 5px;
+                a {
+                    display: block;
+                }
+            }
+        }
+    }
+    .viewer {
+        position: absolute;
+        top: $controls-height;
+        width: 100%;
+        height: 100% - $controls-height;
+        background: $PB_grey_light;
+        .crocodoc-page {
+            background: $PB_white;
+            margin: rem-calc(20) auto;
+            padding: 0;
+            overflow: hidden;
+            @include border-radius(rem-calc(2));
+            @include box-shadow();
+            & * {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+    }
+    .tag {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        p {
+            margin: 0;
+            padding: rem-calc(10);
+            color: $PB_smoke_light;
+
+        }
+    }
+}
+
+@media print {
+    .ereader {
+        display: none;
+    }
+}

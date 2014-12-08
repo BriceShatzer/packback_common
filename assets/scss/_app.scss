@@ -1,0 +1,304 @@
+/* Packback-specific application styling here */
+.book{
+    @include clearfix;
+    @extend .panel;
+    @extend .small-10;
+    @extend .small-centered;
+    @extend .medium-10;
+    @extend .medium-centered;
+    @extend .large-12;
+    @extend .columns;   
+    
+    background: $PB_white;
+    min-height: rem-calc(214);
+    overflow: hidden;
+    padding:0 !important;
+
+    .book-info{
+        @extend .small-12;
+        @extend .large-9;
+        @extend .columns;
+        @extend .rows;
+        background-color: $PB_white;
+        padding:rem-calc(20);
+        position:relative;
+        right:rem-calc(-1);
+        @media screen and (min-width: 1025px) {
+            border-right: rem-calc(1.25) solid $PB_grey_dark;
+        }
+
+        figure{
+            @extend .small-3;
+            @extend .columns;
+            @include clearfix;
+            padding:0 2rem 0 0;
+            margin:0;
+            img{
+                @include thumb;
+                width:100%;
+            }           
+            @media screen and (max-width:40rem){
+                padding-right:1.5rem;
+                padding-bottom:rem-calc(66);
+            }
+
+            @media screen and (max-width:rem-calc(480)){
+                display: none;
+            }
+
+        }
+        .info {
+            @extend .small-9;
+            @extend .columns;
+            padding:rem-calc(0 0 66 0);
+            @media screen and (max-width: 1024px) {
+                p{margin-bottom:0.75rem}
+            }
+            @media screen and (max-width:480px) {
+                padding-right:0;
+                width:100%;
+            }
+            .author span{
+                 @extend h4;
+            }
+            .isbn {
+                @extend .hide-for-large-up;
+                span{@extend h4;}
+            }
+        }//end .info
+    }//end .book-info
+
+
+    .interactions{
+        @include clearfix;
+        @extend .small-9;
+        padding:rem-calc(10 20 20 10);
+        font-weight: 600;
+        position: absolute;
+        bottom:0;
+        right:0;
+
+        @media screen and (max-width:40em){
+
+            padding-left:rem-calc(20);
+            width:100%;
+        }
+
+        >div{
+            @include clearfix;
+            border-top: rem-calc(1.25) solid $PB_grey_light;
+            @media screen and (max-width:480px){
+            }
+        }
+        .addToBookshelf,.removeFromBookshelf,.showBookDetails{
+            @extend .small-5;
+            padding-top:rem-calc(20);
+            padding-left:0;
+            padding-right:0;
+            display:inline-block;
+            @media screen and (max-width:rem-calc(960)){
+                span{display:none;}
+                span.icon{display:inline;}
+            }
+            .icon{
+                font-size: rem-calc(24);
+                vertical-align: middle;
+            }
+        }
+        .addToBookshelf,.removeFromBookshelf{
+            padding-left:0;
+            .icon{
+                padding-right:rem-calc(5);
+            }
+        }
+        .addToBookshelf{
+            a{
+                color:$PB_teal_light;
+                &:hover{color:$PB_teal;}
+            }
+        }
+        .removeFromBookshelf{
+            a{
+                color:$PB_grey_dark;
+                &:hover{color:$PB_seafoam_dark;}
+            }
+        }
+        .showBookDetails{ 
+            text-align: right;
+            a{
+                border-color: $PB_grey_dark;
+                color: $PB_grey_dark;
+                @media screen and (min-width:640px){
+                    display: inline-block;
+                } 
+                &:hover{color:$PB_seafoam_dark;}
+            }
+            .icon{
+                padding-left:rem-calc(5);
+            }        
+        }
+    }
+
+
+
+    .book-action{
+        @extend .small-12;
+        @extend .large-3;
+        @extend .columns;
+        @extend .clearfix;
+        background-color:$PB_grey;
+        padding:20px;
+        @media screen and (min-width: 64.063rem){
+            border-left: rem-calc(1.25) solid $PB_grey_dark;
+            position:absolute;
+            top:0;
+            bottom:0;
+            right:0;
+        }
+        @media screen and (max-width: 64rem){
+            border-top: rem-calc(1.25) solid $PB_grey_dark;
+        }
+        
+        .row{
+            @extend .small-12;
+            margin-left:auto;
+            margin-right:auto;
+            padding:10px 0px;
+            &:first-child{padding-top:0px;}
+            a{margin-bottom: 0;}
+            p{margin-bottom: 0;
+                @media screen and (min-width:40.063rem) and (max-width:64rem){
+                    padding-top:1rem;
+                }
+            }
+            .action{
+                @extend .button;
+                @extend .small-7;
+                padding-top:rem-calc(12);
+                padding-bottom: rem-calc(12);
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
+            .price,.time{
+                @extend .small-4;
+                @include border-radius(rem-calc(5));
+                background-color:$PB_white;
+                border: rem-calc(1.25) solid $PB_grey_dark;
+                color: $PB_smoke;
+                font-weight: 600;
+                line-height: normal;            
+                padding: rem-calc(12);
+                text-transform: uppercase;
+                text-align:center;            
+            }
+            .time{
+                font-size: rem-calc(12);
+                line-height: rem-calc(18);
+            }
+            &:last-of-type a.action{
+                background-color:$PB_smoke_light;
+                border-color:$PB_smoke;
+                &:hover{background-color:$PB_smoke;}
+            }            
+        }
+    }
+}
+
+
+.book.ready,.book.active{
+    //background: $PB_seafoam_light;
+    @extend .panel.callout;
+    .book-info{
+        background-color: $PB_seafoam_light;
+    }
+    .interactions{
+        >div{
+            border-color:$PB_grey_dark;
+        }
+        .showBookDetails{ 
+            float:right;     
+        }
+    }
+
+    .book-action{
+        background-color:$PB_seafoam;
+       
+        .row{
+            @extend .small-12;
+            @extend .medium-6;
+            @extend .large-12;
+            float:left;
+            margin-left:0;
+            margin-right:0;
+            padding:10px 0px;
+            &:first-child{padding-top:0px;}
+            @media screen and (max-width: 1024px) and (min-width:641px){
+                padding-top:0;
+                padding-bottom:0;
+                &:last-child{padding-left: rem-calc(20);}
+            }
+            figure{
+                @extend .small-3;
+                margin:0;
+                float:left;
+                text-align: center;
+                img{
+                    height:rem-calc(42);
+                    vertical-align:middle;
+                }
+            }
+        }
+        .action{
+            @extend .button;
+            @extend .small-12;
+
+        }
+        .time{
+        @extend .small-9;
+        background-color:$PB_white;
+        }
+    }
+}
+
+section.search{
+    @include clearfix;
+    max-width: (rem-calc(1000));    
+    float:none !important;
+    margin:rem-calc(20) auto;
+    clear:both;
+
+    &>input[type="text"]{
+        @include grid-column(12);
+        max-width: rem-calc(1000);
+        
+        &+input[type="submit"]{
+            background-color:transparent;   
+            color:$PB_grey_dark;
+            font-size:1.5rem;
+            font-weight: 600;
+            text-rendering: optimizeLegibility;
+            height:rem-calc(45);
+            border-width:0;
+            position: absolute;
+            top:0;
+            right:0;
+            padding-right:rem-calc(15);
+        }
+
+        &:focus+input[type="submit"]{
+            color:$PB_teal_light;
+            &:hover{color:$PB_teal;}        
+        }
+
+        @media screen and (max-width:64rem){
+            @include grid-column(10);
+            float:none !important;
+            margin:0 auto;
+            padding-right:rem-calc(40);
+
+            &+input[type="submit"]{
+                right:8.33333%;
+            }
+        }
+    }
+}
