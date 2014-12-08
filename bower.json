@@ -11,6 +11,9 @@
     "node_modules",
     "bower_components",
     "./bower_components",
+    "favicon.ico",
+    "gulpfile.js",
+    "package.json",
     "test",
     "tests"
   ],
